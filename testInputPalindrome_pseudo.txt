@@ -1,0 +1,45 @@
+package Test.Test;
+
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class testInputPalindrome{
+	// count the chars in the input string
+	// if not more than one character has odd count then palindrome is possible
+	public static boolean canMakePalindrome(String s) {
+		Set<Character> oddLetters = new HashSet<Character>();
+		for (char c : s.toCharArray()) {
+			if (!oddLetters.remove(c)) {
+				oddLetters.add(c);
+			}
+		}
+		return oddLetters.size() <= 1;
+	}
+
+//to print valid input that form Palindrome
+	public static void printPalindrome(String str) {
+		if (canMakePalindrome(str) == true)
+		{
+		//logic to print valid input that forms palindrome
+
+			System.out.println(str + " - is a valid input.");
+	        System.out.println("The substring that is palindrome : ");
+	}
+	        else
+	        {
+	        	System.out.println("Input is not valid to create a Palindrome ");
+	        }
+	             
+	    }
+
+	public static void main(String[] args) {
+		// This statement will capture the user input
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Input word");
+		// Captured input would be stored
+		String x = sc.nextLine();
+		printPalindrome(x);
+
+	}
+}
